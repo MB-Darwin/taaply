@@ -1,5 +1,5 @@
 packages:
   - "apps/*"
-
+  - "libs/shared/*"
 autoInstallPeers: true
 strictPeerDependencies: false
