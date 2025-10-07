@@ -1,8 +1,8 @@
 "use client";
 
-import * as React from "react";
 import { cn } from "@taaply/utils";
 import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react";
 
 // Define CardContext
 type CardContextType = {
@@ -28,7 +28,7 @@ const cardVariants = cva(
 	{
 		variants: {
 			variant: {
-				default: "black/5 border border-border bg-card shadow-xs",
+				default: "black/5 border border-border/50 bg-card shadow-xs",
 				accent: "bg-muted p-1 shadow-xs",
 			},
 		},

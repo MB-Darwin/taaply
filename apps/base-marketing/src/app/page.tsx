@@ -1,31 +1,34 @@
 "use client";
 
-import { HeroHeader } from "@taaply/ui";
-import { useScroll, useTransform } from "motion/react";
+import { CustomerLogos, FooterSection, HeroHeader } from "@taaply/ui";
+import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { HeroSection } from "../components/hero-section";
+import { ServicesSection } from "../components/services-section";
 
 export default function Page() {
 	const containerRef = useRef<HTMLDivElement>(null);
-	// Track progress within the container
+
 	const { scrollYProgress } = useScroll({
 		target: containerRef,
 		offset: ["start start", "end start"],
 	});
 
+	const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
 	return (
-		<>
+		<div ref={containerRef}>
 			<HeroHeader />
 
-			{/* Scrollable container with both sections */}
-			<div ref={containerRef} className="relative h-screen">
-				{/* Hero stays fixed at top */}
-
+			<motion.div style={{ y: heroY }}>
 				<HeroSection scrollProgress={scrollYProgress} />
-			</div>
+			</motion.div>
 
-			{/* Next section parallaxes up over hero */}
-			<div className={"h-dvh"}>Test</div>
-		</>
+			<main className="relative z-10 min-h-screen bg-background">
+				<CustomerLogos />
+				<ServicesSection />
+				<FooterSection />
+			</main>
+		</div>
 	);
 }

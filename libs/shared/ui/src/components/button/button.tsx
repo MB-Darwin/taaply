@@ -1,10 +1,9 @@
-import type * as React from "react";
+import { cn } from "@taaply/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ChevronDown, Loader2, type LucideIcon } from "lucide-react";
-import { Slot as SlotPrimitive } from "radix-ui";
-
-import { cn } from "@taaply/utils";
 import Link, { type LinkProps } from "next/link";
+import { Slot as SlotPrimitive } from "radix-ui";
+import type * as React from "react";
 
 const buttonVariants = cva(
 	"group inline-flex cursor-pointer items-center justify-center whitespace-nowrap whitespace-nowrap font-semibold text-sm ring-offset-background transition-[color,box-shadow] focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-60 has-data-[arrow=true]:justify-between [&_svg]:shrink-0",
@@ -208,37 +207,37 @@ const buttonVariants = cva(
 			{
 				variant: "text",
 				color: "inherit",
-				className: "text-foreground hover:underline",
+				className: "text-foreground",
 			},
 			{
 				variant: "text",
 				color: "primary",
-				className: "text-primary hover:underline",
+				className: "text-primary",
 			},
 			{
 				variant: "text",
 				color: "secondary",
-				className: "text-secondary hover:underline",
+				className: "text-secondary",
 			},
 			{
 				variant: "text",
 				color: "success",
-				className: "text-success hover:underline",
+				className: "text-success",
 			},
 			{
 				variant: "text",
 				color: "warning",
-				className: "text-warning hover:underline",
+				className: "text-warning",
 			},
 			{
 				variant: "text",
 				color: "error",
-				className: "text-error hover:underline",
+				className: "text-error",
 			},
 			{
 				variant: "text",
 				color: "info",
-				className: "text-info hover:underline",
+				className: "text-info",
 			},
 
 			// Dashed variants
@@ -443,6 +442,13 @@ const buttonVariants = cva(
 				appearance: "ghost",
 				className:
 					"bg-transparent text-error/90 hover:bg-error/5 data-[state=open]:bg-error/5",
+			},
+			{
+				variant: "contained",
+				color: "inherit",
+				appearance: "ghost",
+				className:
+					"bg-transparent text-foreground/90 hover:bg-secondary data-[state=open]:bg-secondary",
 			},
 
 			// Size adjustments for icon mode

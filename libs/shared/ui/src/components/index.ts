@@ -14,6 +14,7 @@ export * from "./date-time";
 export * from "./dialog";
 export * from "./drawer";
 export * from "./dropdown-menu";
+export * from "./footer/footer";
 export * from "./form";
 export * from "./input";
 export * from "./kanban";
