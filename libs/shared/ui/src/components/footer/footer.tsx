@@ -1,7 +1,6 @@
 import taaplyLogo from "@taaply/assets/images/taaply-icon.png";
-import Link from "next/link";
-import { Avatar, AvatarFallback, AvatarImage } from "../avatar";
 import Image from "next/image";
+import Link from "next/link";
 
 const footerLinks = [
 	{
@@ -63,7 +62,7 @@ const footerLinks = [
 
 export function FooterSection() {
 	return (
-		<footer className="lg:m-4 bg-accent rounded-2xl">
+		<footer className="rounded-2xl bg-accent lg:m-4">
 			<div className="mx-auto max-w-7xl px-4 py-12 md:px-6 lg:px-8">
 				<div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
 					{/* Logo Column */}
@@ -75,7 +74,7 @@ export function FooterSection() {
 					{/* Link Columns */}
 					{footerLinks.map((section) => (
 						<div key={section.group} className="space-y-3">
-							<h3 className="text-sm font-medium text-foreground">
+							<h3 className="font-medium text-foreground text-sm">
 								{section.group}
 							</h3>
 							<ul className="space-y-2">
@@ -83,7 +82,7 @@ export function FooterSection() {
 									<li key={item.title}>
 										<Link
 											href={item.href}
-											className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+											className="text-muted-foreground text-sm transition-colors hover:text-foreground"
 										>
 											{item.title}
 										</Link>

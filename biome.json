@@ -7,7 +7,14 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"includes": ["**", "!**/.next", "!node_modules", "!**/*.spec.ts", "!**/.nx"]
+		"includes": [
+			"**",
+			"!**/.next",
+			"!**/dist",
+			"!node_modules",
+			"!**/*.spec.ts",
+			"!**/.nx"
+		]
 	},
 	"formatter": {
 		"enabled": true,

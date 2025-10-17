@@ -1,8 +1,8 @@
 "use client";
 
+import { CustomerLogos, FooterSection, HeroHeader } from "@taaply/ui";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import { CustomerLogos, FooterSection, HeroHeader } from "@taaply/ui";
 import { HeroSection } from "@/marketing/components/sections/hero-section";
 import { ServicesSection } from "@/marketing/components/sections/services-section";
 

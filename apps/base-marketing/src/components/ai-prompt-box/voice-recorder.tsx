@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
 import { cn } from "@taaply/utils";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 interface VoiceRecorderProps {
 	isRecording: boolean;

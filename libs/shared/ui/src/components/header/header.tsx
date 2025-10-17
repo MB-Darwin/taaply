@@ -3,11 +3,11 @@
 import SolidLineIcon from "@taaply/assets/icons/solid-line-01-stroke-rounded";
 import taaplyLogo from "@taaply/assets/images/taaply-logo.png";
 import { cn } from "@taaply/utils";
+import { useScroll } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Button } from "../button";
-import { useScroll } from "motion/react";
 
 const menuItems = [
 	{ name: "Service", href: "#link" },
@@ -85,7 +85,7 @@ export const HeroHeader = () => {
 										<li key={`menu-item-${index}`}>
 											<Link
 												href={item.href}
-												className="text-muted-foreground hover:text-accent-foreground block duration-150"
+												className="block text-muted-foreground duration-150 hover:text-accent-foreground"
 											>
 												<span>{item.name}</span>
 											</Link>
@@ -95,14 +95,14 @@ export const HeroHeader = () => {
 							</div>
 						</div>
 
-						<div className="bg-background in-data-[state=active]:block lg:in-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent">
+						<div className="mb-6 in-data-[state=active]:block hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border bg-background p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:in-data-[state=active]:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent">
 							<div className="lg:hidden">
 								<ul className="space-y-6 text-base">
 									{menuItems.map((item, index) => (
 										<li key={index}>
 											<Link
 												href={item.href}
-												className="text-muted-foreground hover:text-accent-foreground block duration-150"
+												className="block text-muted-foreground duration-150 hover:text-accent-foreground"
 											>
 												<span>{item.name}</span>
 											</Link>

@@ -1,5 +1,6 @@
 "use client";
 
+import { Badge, BadgeDot, Particles } from "@taaply/ui";
 import {
 	type MotionValue,
 	motion,
@@ -10,21 +11,25 @@ import {
 } from "motion/react";
 import React, { useEffect, useRef } from "react";
 import { PromptInputBox } from "../ai-prompt-box";
-import { Badge, BadgeDot, Particles } from "@taaply/ui";
 
 const useTypingEffect = (text: string, speed: number = 100) => {
 	const [displayedText, setDisplayedText] = React.useState("");
 	const [isComplete, setIsComplete] = React.useState(false);
 
 	useEffect(() => {
+		let timeout: ReturnType<typeof setTimeout> | undefined;
+
 		if (displayedText.length < text.length) {
-			const timeout = setTimeout(() => {
+			timeout = setTimeout(() => {
 				setDisplayedText(text.slice(0, displayedText.length + 1));
 			}, speed);
-			return () => clearTimeout(timeout);
 		} else {
 			setIsComplete(true);
 		}
+
+		return () => {
+			if (timeout) clearTimeout(timeout);
+		};
 	}, [displayedText, text, speed]);
 
 	return { displayedText, isComplete };
@@ -138,7 +143,7 @@ export function HeroSection({ scrollProgress }: HeroSectionProps) {
 	return (
 		<div className="relative flex h-screen w-full items-center justify-center overflow-hidden">
 			<motion.div
-				className="pointer-events-none absolute inset-0 -z-10"
+				className="-z-10 pointer-events-none absolute inset-0"
 				style={{
 					background:
 						"radial-gradient(50% 50% at 50% 10%, #fff 70%, var(--muted) 100%)",
@@ -146,7 +151,7 @@ export function HeroSection({ scrollProgress }: HeroSectionProps) {
 			/>
 
 			<motion.div
-				className="pointer-events-none absolute inset-0 -z-10"
+				className="-z-10 pointer-events-none absolute inset-0"
 				style={{
 					background:
 						"radial-gradient(50% 50% at 50% 10%, #fff 70%, #fff 100%)",
@@ -201,7 +206,7 @@ export function HeroSection({ scrollProgress }: HeroSectionProps) {
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.7, delay: 0.1 }}
-					className="text-balance text-center font-bold text-4xl md:text-6xl min-h-[80px]"
+					className="min-h-[80px] text-balance text-center font-bold text-4xl md:text-6xl"
 					style={{
 						letterSpacing,
 					}}
@@ -209,7 +214,7 @@ export function HeroSection({ scrollProgress }: HeroSectionProps) {
 					<span>{welcomeText}</span>
 					<span className="text-primary">{taiText}</span>
 					<span
-						className={`inline-block ml-1 ${!welcomeComplete || taiText.length < 3 ? "animate-blink-cursor" : "opacity-0"}`}
+						className={`ml-1 inline-block ${!welcomeComplete || taiText.length < 3 ? "animate-blink-cursor" : "opacity-0"}`}
 					>
 						|
 					</span>

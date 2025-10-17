@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
 import { Dialog, DialogContent, DialogTitle } from "@taaply/ui";
+import { motion } from "motion/react";
 
 interface ImageViewDialogProps {
 	imageUrl: string | null;

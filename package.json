@@ -2,7 +2,10 @@
 	"name": "@taaply/source",
 	"version": "0.0.0",
 	"license": "MIT",
-	"scripts": {},
+	"scripts": {
+		"format": "exec biome format --write  .",
+		"check": "exec biome check --write --unsafe ."
+	},
 	"private": true,
 	"dependencies": {
 		"@base-ui-components/react": "1.0.0-beta.4",

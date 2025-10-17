@@ -1,14 +1,14 @@
 "use client";
 
+import { Button, Tooltip, TooltipContent, TooltipTrigger } from "@taaply/ui";
+import { cn } from "@taaply/utils";
 import { ArrowUp, Mic, Paperclip, Square, StopCircle } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { cn } from "@taaply/utils";
 import type {
 	Attachment,
 	Mode,
 	PromptInputBoxProps,
 } from "../../types/ai-prompt-box.types";
-import { Button, Tooltip, TooltipContent, TooltipTrigger } from "@taaply/ui";
 import { AttachmentPreview } from "./attachment-preview";
 import { ImageViewDialog } from "./image-view-dialog";
 import { MODE_CONFIG, ModeSelector } from "./mode-selector";

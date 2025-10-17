@@ -1,8 +1,8 @@
 "use client";
 
+import { cn } from "@taaply/utils";
 import { X } from "lucide-react";
 import Image from "next/image";
-import { cn } from "@taaply/utils";
 import type { Attachment } from "../../types/ai-prompt-box.types";
 
 interface AttachmentPreviewProps {
@@ -27,7 +27,7 @@ export function AttachmentPreview({
 					{att.kind === "image" && (
 						<button
 							type="button"
-							className="h-20 w-20 cursor-pointer overflow-hidden rounded-xl border border-border/50 transition-all duration-300 hover:border-border hover:shadow-md relative group"
+							className="group relative h-20 w-20 cursor-pointer overflow-hidden rounded-xl border border-border/50 transition-all duration-300 hover:border-border hover:shadow-md"
 							onClick={() => onImageClick(att.previewUrl)}
 							onKeyDown={(e) => {
 								if (e.key === "Enter" || e.key === " ") {
