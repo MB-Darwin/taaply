@@ -1,0 +1,44 @@
+{
+	"root": false,
+	"extends": "//",
+	"linter": {
+		"enabled": true,
+		"domains": {
+			"next": "all",
+			"tailwind": "all"
+		},
+		"rules": {
+			"recommended": true,
+			"a11y": "info",
+			"correctness": {
+				"noUnusedVariables": "warn",
+				"useExhaustiveDependencies": "warn",
+				"useHookAtTopLevel": "warn"
+			},
+			"complexity": {
+				"noBannedTypes": "off"
+			},
+			"style": {
+				"useImportType": "warn",
+				"useSelfClosingElements": "off"
+			},
+			"security": {
+				"noDangerouslySetInnerHtml": "off"
+			},
+			"suspicious": {
+				"noAssignInExpressions": "off",
+				"noArrayIndexKey": "off",
+				"noUnknownAtRules": "warn"
+			},
+			"nursery": {
+				"useSortedClasses": {
+					"level": "warn",
+					"options": {
+						"attributes": ["classList"],
+						"functions": ["clsx", "cva", "tw"]
+					}
+				}
+			}
+		}
+	}
+}

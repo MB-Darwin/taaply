@@ -3,8 +3,8 @@
 import { CustomerLogos, FooterSection, HeroHeader } from "@taaply/ui";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import { HeroSection } from "../components/hero-section";
-import { ServicesSection } from "../components/services-section";
+import { HeroSection } from "@/marketing/components/hero-section";
+import { ServicesSection } from "@/marketing/components/services-section";
 
 export default function Page() {
 	const containerRef = useRef<HTMLDivElement>(null);

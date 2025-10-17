@@ -1,13 +1,13 @@
 "use client";
 
+import { PopoverTrigger } from "@radix-ui/react-popover";
+import { format } from "date-fns";
+import { CalendarIcon } from "lucide-react";
 import { useState } from "react";
 import { Button } from "../button";
 import { Calendar } from "../calendar";
 import { Popover, PopoverContent } from "../popover";
 import { ScrollArea } from "../scroll";
-import { PopoverTrigger } from "@radix-ui/react-popover";
-import { format } from "date-fns";
-import { CalendarIcon } from "lucide-react";
 
 export default function DatePickerDemo() {
 	const today = new Date();
@@ -96,7 +96,7 @@ export default function DatePickerDemo() {
 										{timeSlots.map(({ time: timeSlot, available }) => (
 											<Button
 												key={timeSlot}
-												variant={time === timeSlot ? "primary" : "outline"}
+												variant={time === timeSlot ? "contained" : "outline"}
 												size="sm"
 												className="w-full"
 												onClick={() => setTime(timeSlot)}

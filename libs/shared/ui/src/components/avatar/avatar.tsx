@@ -1,9 +1,9 @@
 "use client";
 
-import type * as React from "react";
 import { cn } from "@taaply/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Avatar as AvatarPrimitive } from "radix-ui";
+import type * as React from "react";
 
 const avatarStatusVariants = cva(
 	"flex size-2 items-center rounded-full border-2 border-background",

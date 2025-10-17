@@ -1,9 +1,9 @@
 "use client";
 
-import type * as React from "react";
 import { cn } from "@taaply/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Label as LabelPrimitive } from "radix-ui";
+import type * as React from "react";
 
 const labelVariants = cva(
 	"text-foreground text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50",

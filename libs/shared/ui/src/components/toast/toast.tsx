@@ -1,8 +1,7 @@
 "use client";
 
-import { toastManager, useToast } from "../../hooks/use-toast";
-import { cn } from "@taaply/utils";
 import { Toast } from "@base-ui-components/react/toast";
+import { cn } from "@taaply/utils";
 import { cva } from "class-variance-authority";
 import {
 	CircleAlert,
@@ -12,6 +11,7 @@ import {
 	TriangleAlert,
 	X,
 } from "lucide-react";
+import { toastManager, useToast } from "../../hooks/use-toast";
 
 export type ToastType =
 	| "default"

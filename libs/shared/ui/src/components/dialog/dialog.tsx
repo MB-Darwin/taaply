@@ -1,10 +1,10 @@
 "use client";
 
-import type * as React from "react";
 import { cn } from "@taaply/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { X } from "lucide-react";
 import { Dialog as DialogPrimitive } from "radix-ui";
+import type * as React from "react";
 
 const dialogContentVariants = cva(
 	"data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed z-50 flex flex-col border border-border bg-background p-6 shadow-black/5 shadow-lg outline-0 duration-200 data-[state=closed]:animate-out data-[state=open]:animate-in sm:rounded-lg",

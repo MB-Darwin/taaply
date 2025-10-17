@@ -1,23 +1,21 @@
 "use client";
 
-import * as React from "react";
-import { cn } from "@taaply/utils";
 import {
-	defaultDropAnimation,
-	defaultDropAnimationSideEffects,
 	DndContext,
 	type DragEndEvent,
+	type DraggableAttributes,
+	type DraggableSyntheticListeners,
 	type DragOverEvent,
 	DragOverlay,
 	type DragStartEvent,
 	type DropAnimation,
+	defaultDropAnimation,
+	defaultDropAnimationSideEffects,
 	KeyboardSensor,
 	PointerSensor,
 	type UniqueIdentifier,
 	useSensor,
 	useSensors,
-	type DraggableAttributes,
-	type DraggableSyntheticListeners,
 } from "@dnd-kit/core";
 import {
 	arrayMove,
@@ -29,6 +27,8 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { Slot } from "@radix-ui/react-slot";
+import { cn } from "@taaply/utils";
+import * as React from "react";
 
 interface KanbanContextProps<T> {
 	columns: Record<string, T[]>;

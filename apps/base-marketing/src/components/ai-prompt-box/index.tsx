@@ -1,24 +1,24 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
-import { ArrowUp, Paperclip, Square, StopCircle, Mic } from "lucide-react";
 import { Button, Tooltip, TooltipContent, TooltipTrigger } from "@taaply/ui";
 import { cn } from "@taaply/utils";
+import { ArrowUp, Mic, Paperclip, Square, StopCircle } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import type {
+	Attachment,
+	Mode,
+	PromptInputBoxProps,
+} from "../../types/ai-prompt-box.types";
+import { AttachmentPreview } from "./attachment-preview";
+import { ImageViewDialog } from "./image-view-dialog";
+import { MODE_CONFIG, ModeSelector } from "./mode-selector";
 import {
 	PromptInput,
-	PromptInputTextarea,
 	PromptInputActions,
+	PromptInputTextarea,
 	// useMergedRefs,
 } from "./prompt-input";
 import { VoiceRecorder } from "./voice-recorder";
-import { ImageViewDialog } from "./image-view-dialog";
-import { ModeSelector, MODE_CONFIG } from "./mode-selector";
-import { AttachmentPreview } from "./attachment-preview";
-import type {
-	Mode,
-	Attachment,
-	PromptInputBoxProps,
-} from "../../types/ai-prompt-box.types";
 
 export function PromptInputBox({
 	onSend = () => {},
@@ -62,7 +62,7 @@ export function PromptInputBox({
 				},
 			];
 		});
-	}, [isImageFile]);
+	}, []);
 
 	// Cleanup on unmount
 	useEffect(() => {
@@ -85,7 +85,7 @@ export function PromptInputBox({
 			const image = files.find((f) => isImageFile(f));
 			if (image) processFile(image);
 		},
-		[processFile, isImageFile],
+		[processFile],
 	);
 
 	const handleRemoveAttachment = (id: string) => {

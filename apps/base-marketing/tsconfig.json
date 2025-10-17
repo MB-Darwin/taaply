@@ -16,9 +16,15 @@
 				"name": "next"
 			}
 		],
-		"outDir": "dist",
-		"rootDir": "src",
-		"tsBuildInfoFile": "dist/tsconfig.tsbuildinfo"
+		"outDir": "../../apps/base-marketing",
+		"tsBuildInfoFile": "../../apps/base-marketing/tsconfig.tsbuildinfo",
+		"baseUrl": ".",
+		"paths": {
+			"@/marketing/*": ["./src/*"],
+			"@taaply/ui": ["../../libs/shared/ui/src/index.ts"],
+			"@taaply/utils": ["../../libs/shared/utils/src/index.ts"],
+			"@taaply/assets/*": ["../../libs/shared/assets/src/*"]
+		}
 	},
 	"include": [
 		"../../apps/base-marketing/.next/types/**/*.ts",

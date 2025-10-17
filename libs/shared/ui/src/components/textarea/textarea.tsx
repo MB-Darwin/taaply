@@ -1,8 +1,8 @@
 "use client";
 
-import type * as React from "react";
 import { cn } from "@taaply/utils";
 import { cva, type VariantProps } from "class-variance-authority";
+import type * as React from "react";
 
 // Define input size variants
 const textareaVariants = cva(

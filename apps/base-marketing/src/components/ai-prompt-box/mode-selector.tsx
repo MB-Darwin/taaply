@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, AnimatePresence } from "motion/react";
-import { Globe, BrainCog, FolderCode } from "lucide-react";
 import { cn } from "@taaply/utils";
+import { BrainCog, FolderCode, Globe } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import type { Mode, ModeConfig } from "../../types/ai-prompt-box.types";
 
 const MODE_CONFIG: Record<Exclude<Mode, "idle">, ModeConfig> = {

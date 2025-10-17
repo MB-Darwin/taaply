@@ -1,16 +1,16 @@
 "use client";
 
-import {
-	createContext,
-	useContext,
-	useCallback,
-	useState,
-	useRef,
-	useEffect,
-} from "react";
 import { Textarea, TooltipProvider } from "@taaply/ui";
 import { cn } from "@taaply/utils";
-import type { ReactNode, ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
+import {
+	createContext,
+	useCallback,
+	useContext,
+	useEffect,
+	useRef,
+	useState,
+} from "react";
 
 // Context
 interface PromptInputContextType {

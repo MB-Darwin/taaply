@@ -1,10 +1,10 @@
 "use client";
 
-import * as React from "react";
 import { cn } from "@taaply/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ChevronDown, Plus } from "lucide-react";
 import { Accordion as AccordionPrimitive } from "radix-ui";
+import * as React from "react";
 
 // Variants
 const accordionRootVariants = cva("", {

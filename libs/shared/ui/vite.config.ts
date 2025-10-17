@@ -1,8 +1,9 @@
 /// <reference types='vitest' />
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import dts from "vite-plugin-dts";
+
 import * as path from "node:path";
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
 
 export default defineConfig(() => ({
 	root: __dirname,
@@ -14,6 +15,12 @@ export default defineConfig(() => ({
 			tsconfigPath: path.join(__dirname, "tsconfig.lib.json"),
 		}),
 	],
+	resolve: {
+		alias: {
+			"@taaply/utils": path.resolve(__dirname, "../utils/src/index.ts"),
+			"@taaply/assets": path.resolve(__dirname, "../assets/src"),
+		},
+	},
 	// Uncomment this if you are using workers.
 	// worker: {
 	//  plugins: [ nxViteTsPaths() ],
@@ -21,7 +28,7 @@ export default defineConfig(() => ({
 	// Configuration for building your library.
 	// See: https://vitejs.dev/guide/build.html#library-mode
 	build: {
-		outDir: "./dist",
+		outDir: path.join(__dirname, "dist"),
 		emptyOutDir: true,
 		reportCompressedSize: true,
 		commonjsOptions: {
@@ -29,7 +36,7 @@ export default defineConfig(() => ({
 		},
 		lib: {
 			// Could also be a dictionary or array of multiple entry points.
-			entry: "src/index.tsx",
+			entry: "src/index.ts",
 			name: "@taaply/ui",
 			fileName: "index",
 			// Change this to the formats you want to support.
@@ -38,7 +45,15 @@ export default defineConfig(() => ({
 		},
 		rollupOptions: {
 			// External packages that should not be bundled into your library.
-			external: ["react", "react-dom", "react/jsx-runtime"],
+			external: [
+				"react",
+				"react-dom",
+				"react/jsx-runtime",
+				// Externalize image imports
+				/\.png$/,
+				/\.jpg$/,
+				/\.svg$/,
+			],
 		},
 	},
 }));

@@ -1,9 +1,9 @@
 "use client";
 
-import type * as React from "react";
 import { cn } from "@taaply/utils";
 import { Check, ChevronRight, Circle } from "lucide-react";
 import { DropdownMenu as DropdownMenuPrimitive } from "radix-ui";
+import type * as React from "react";
 
 function DropdownMenu({
 	...props

@@ -3,7 +3,6 @@ import chivasLogo from "@taaply/assets/images/chivas-Logo.png";
 import doualaLogo from "@taaply/assets/images/douala-logo.png";
 import forvisLogo from "@taaply/assets/images/forvis-logo.png";
 import mtnLogo from "@taaply/assets/images/mtn-logo.png";
-import taaplyLogo from "@taaply/assets/images/taaply-logo.png";
 import uodLogo from "@taaply/assets/images/uod-logo.png";
 import walmartLogo from "@taaply/assets/images/walmart-logo.png";
 import Image from "next/image";

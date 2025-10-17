@@ -1,6 +1,12 @@
 "use client";
 
-import { type ReactNode, type RefObject, useCallback, useEffect, useRef } from "react";
+import {
+	type ReactNode,
+	type RefObject,
+	useCallback,
+	useEffect,
+	useRef,
+} from "react";
 
 type ScrollspyProps = {
 	children: ReactNode;
@@ -194,13 +200,7 @@ export function Scrollspy({
 				item.removeEventListener("click", scrollTo(item as HTMLElement));
 			});
 		};
-	}, [
-		targetRef, 
-		handleScroll, 
-		dataAttribute, 
-		scrollTo, 
-		scrollToHashSection
-	]);
+	}, [targetRef, handleScroll, dataAttribute, scrollTo, scrollToHashSection]);
 
 	return (
 		<div data-slot="scrollspy" className={className} ref={selfRef}>

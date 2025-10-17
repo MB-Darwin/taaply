@@ -1,6 +1,6 @@
 "use client";
-import { type HTMLMotionProps, motion } from "motion/react";
 import { cn } from "@taaply/utils";
+import { type HTMLMotionProps, motion } from "motion/react";
 
 export const GRADIENT_ANGLES = {
 	top: 0,

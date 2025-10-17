@@ -114,7 +114,7 @@ export function HeroSection({ scrollProgress }: HeroSectionProps) {
 	return (
 		<div className="relative flex h-screen w-full items-center justify-center overflow-hidden">
 			<motion.div
-				className="pointer-events-none absolute inset-0 -z-10"
+				className="-z-10 pointer-events-none absolute inset-0"
 				style={{
 					background:
 						"radial-gradient(50% 50% at 50% 10%, #fff 70%, var(--muted) 100%)",
@@ -122,7 +122,7 @@ export function HeroSection({ scrollProgress }: HeroSectionProps) {
 			/>
 
 			<motion.div
-				className="pointer-events-none absolute inset-0 -z-10"
+				className="-z-10 pointer-events-none absolute inset-0"
 				style={{
 					background:
 						"radial-gradient(50% 50% at 50% 10%, #fff 70%, #fff 100%)",

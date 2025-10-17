@@ -1,6 +1,5 @@
-import type { ComponentPropsWithoutRef, CSSProperties, FC } from "react";
-
 import { cn } from "@taaply/utils";
+import type { ComponentPropsWithoutRef, CSSProperties, FC } from "react";
 
 export interface AnimatedShinyTextProps
 	extends ComponentPropsWithoutRef<"span"> {

@@ -1,8 +1,8 @@
 "use client";
 
+import { cn } from "@taaply/utils";
 import * as React from "react";
 import { createContext, useContext } from "react";
-import { cn } from "@taaply/utils";
 
 // Types
 type StepperOrientation = "horizontal" | "vertical";
@@ -137,12 +137,17 @@ function Stepper({
 			indicators,
 		}),
 		[
-			currentStep, 
-			handleSetActiveStep, 
-			children, 
-			orientation, 
-			registerTrigger, 
-			triggerNodes, focusFirst, focusLast, focusNext, focusPrev, indicators
+			currentStep,
+			handleSetActiveStep,
+			children,
+			orientation,
+			registerTrigger,
+			triggerNodes,
+			focusFirst,
+			focusLast,
+			focusNext,
+			focusPrev,
+			indicators,
 		],
 	);
 

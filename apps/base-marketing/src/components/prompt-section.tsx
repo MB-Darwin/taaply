@@ -1,7 +1,7 @@
 "use client";
 
-import { PromptInputBox } from "./ai-prompt-box";
 import { motion } from "motion/react";
+import { PromptInputBox } from "./ai-prompt-box";
 
 export function PromptSection() {
 	const handleSend = (message: string, files?: File[]) => {

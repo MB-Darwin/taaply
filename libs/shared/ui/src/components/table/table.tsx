@@ -1,7 +1,7 @@
 "use client";
 
-import type * as React from "react";
 import { cn } from "@taaply/utils";
+import type * as React from "react";
 
 function Table({
 	className,

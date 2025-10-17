@@ -1,7 +1,7 @@
 "use client";
 
-import { X } from "lucide-react";
 import { cn } from "@taaply/utils";
+import { X } from "lucide-react";
 import type { Attachment } from "../../types/ai-prompt-box.types";
 
 interface AttachmentPreviewProps {

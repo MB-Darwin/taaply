@@ -15,6 +15,12 @@
 	},
 	"linter": {
 		"enabled": true,
+		"domains": {
+			"next": "all",
+			"react": "all",
+			"tailwind": "all",
+			"test": "all"
+		},
 		"rules": {
 			"recommended": true,
 			"a11y": "info",

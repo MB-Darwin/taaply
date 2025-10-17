@@ -51,11 +51,11 @@ export function ServicesSection() {
 	const [activeCategory, setActiveCategory] = useState("Explore");
 
 	return (
-		<section className="w-full px-4 mb-16 md:px-6 lg:px-8">
+		<section className="mb-16 w-full px-4 md:px-6 lg:px-8">
 			<div className="mx-auto max-w-7xl">
 				{/* Header */}
 				<div className="mb-8 flex items-center justify-between">
-					<h1 className="text-3xl font-bold text-foreground">Services</h1>
+					<h1 className="font-bold text-3xl text-foreground">Services</h1>
 				</div>
 
 				{/* Navigation */}
@@ -133,16 +133,16 @@ export function ServicesSection() {
 								{/* Middle - Content */}
 								<div className="flex flex-1 flex-col justify-between">
 									<div className="space-y-2">
-										<h2 className="text-xl font-semibold text-foreground">
+										<h2 className="font-semibold text-foreground text-xl">
 											{service.title}
 										</h2>
-										<p className="text-sm leading-relaxed text-muted-foreground line-clamp-3">
+										<p className="line-clamp-3 text-muted-foreground text-sm leading-relaxed">
 											{service.description}
 										</p>
 									</div>
 
 									{/* Statistics */}
-									<div className="mt-4 flex items-center gap-6 text-sm text-muted-foreground">
+									<div className="mt-4 flex items-center gap-6 text-muted-foreground text-sm">
 										<div className="flex items-center gap-2">
 											<svg
 												xmlns="http://www.w3.org/2000/svg"

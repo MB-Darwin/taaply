@@ -1,10 +1,10 @@
 "use client";
 
-import type * as React from "react";
 import { cn } from "@taaply/utils";
-import { buttonVariants } from "../button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import type * as React from "react";
 import { DayPicker } from "react-day-picker";
+import { buttonVariants } from "../button";
 
 function Calendar({
 	className,
@@ -24,11 +24,11 @@ function Calendar({
 				caption_label: "text-sm font-medium",
 				nav: "absolute top-0 flex w-full justify-between z-10",
 				button_previous: cn(
-					buttonVariants({ variant: "ghost" }),
+					buttonVariants({ color: "inherit", appearance: "ghost" }),
 					"size-8 text-muted-foreground/80 hover:text-foreground p-0",
 				),
 				button_next: cn(
-					buttonVariants({ variant: "ghost" }),
+					buttonVariants({ color: "inherit", appearance: "ghost" }),
 					"size-8 text-muted-foreground/80 hover:text-foreground p-0",
 				),
 				weekday: "size-8 p-0 text-xs font-medium text-muted-foreground/80",

@@ -1,12 +1,12 @@
 "use client";
 
-import React from "react";
-import { cn } from "@taaply/utils";
-import { Button } from "@taaply/ui";
-import Link from "next/link";
 import SolidLineIcon from "@taaply/assets/icons/solid-line-01-stroke-rounded";
-import Image from "next/image";
 import taaplyLogo from "@taaply/assets/images/taaply-logo.png";
+import { cn } from "@taaply/utils";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { Button } from "../button";
 
 const menuItems = [
 	{ name: "Features", href: "#features" },

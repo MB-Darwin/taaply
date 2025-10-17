@@ -1,8 +1,8 @@
-import type * as React from "react";
+import { cn } from "@taaply/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { X } from "lucide-react";
 import { Slot as SlotPrimitive } from "radix-ui";
-import { cn } from "@taaply/utils";
+import type * as React from "react";
 
 const badgeVariants = cva(
 	"inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-[color,box-shadow] [&_svg]:shrink-0",
