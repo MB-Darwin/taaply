@@ -23,6 +23,7 @@ export * from "./components/input";
 export * from "./components/kanban";
 export * from "./components/kbd";
 export * from "./components/label";
+export * from "./components/lang-switcher/lang-switcher";
 export * from "./components/navigation-menu";
 export * from "./components/pagination";
 export * from "./components/particles/particles";

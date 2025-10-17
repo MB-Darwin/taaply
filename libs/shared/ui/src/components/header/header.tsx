@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Button } from "../button";
+import { LanguageSwitcher } from "../lang-switcher/lang-switcher";
 
 const menuItems = [
 	{ name: "Service", href: "#link" },
@@ -111,6 +112,7 @@ export const HeroHeader = () => {
 								</ul>
 							</div>
 							<div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
+								<LanguageSwitcher />
 								<Button variant="outline" color="inherit" href="#">
 									Log in
 								</Button>
