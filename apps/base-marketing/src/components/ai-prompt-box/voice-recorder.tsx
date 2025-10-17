@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "@taaply/utils";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { cn } from "@taaply/utils";
 
 interface VoiceRecorderProps {
 	isRecording: boolean;
@@ -89,9 +89,9 @@ export function VoiceRecorder({
 				</span>
 			</div>
 			<div className="flex h-12 w-full items-center justify-center gap-0.5 px-4">
-				{bars.map((b, i) => (
+				{bars.map((b) => (
 					<div
-						key={i}
+						key={b.height - b.duration}
 						className="h-full w-0.5 animate-pulse rounded-full bg-foreground/50"
 						style={{
 							height: `${b.height}%`,

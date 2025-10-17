@@ -1,14 +1,14 @@
 "use client";
 
-import { Button, Tooltip, TooltipContent, TooltipTrigger } from "@taaply/ui";
-import { cn } from "@taaply/utils";
 import { ArrowUp, Mic, Paperclip, Square, StopCircle } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { cn } from "@taaply/utils";
 import type {
 	Attachment,
 	Mode,
 	PromptInputBoxProps,
 } from "../../types/ai-prompt-box.types";
+import { Button, Tooltip, TooltipContent, TooltipTrigger } from "@taaply/ui";
 import { AttachmentPreview } from "./attachment-preview";
 import { ImageViewDialog } from "./image-view-dialog";
 import { MODE_CONFIG, ModeSelector } from "./mode-selector";
@@ -39,30 +39,33 @@ export function PromptInputBox({
 	const isImageFile = (file: File) => file.type.startsWith("image/");
 	const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 
-	const processFile = useCallback((file: File) => {
-		if (!isImageFile(file)) {
-			console.warn("Only image files are allowed");
-			return;
-		}
-		if (file.size > MAX_FILE_SIZE) {
-			console.warn("File too large (max 10MB)");
-			return;
-		}
+	const processFile = useCallback(
+		(file: File) => {
+			if (!isImageFile(file)) {
+				console.warn("Only image files are allowed");
+				return;
+			}
+			if (file.size > MAX_FILE_SIZE) {
+				console.warn("File too large (max 10MB)");
+				return;
+			}
 
-		const url = URL.createObjectURL(file);
-		setAttachments((prev) => {
-			// Clean up previous URLs
-			prev.forEach((att) => URL.revokeObjectURL(att.previewUrl));
-			return [
-				{
-					id: crypto.randomUUID(),
-					file,
-					kind: "image",
-					previewUrl: url,
-				},
-			];
-		});
-	}, []);
+			const url = URL.createObjectURL(file);
+			setAttachments((prev) => {
+				// Clean up previous URLs
+				prev.forEach((att) => URL.revokeObjectURL(att.previewUrl));
+				return [
+					{
+						id: crypto.randomUUID(),
+						file,
+						kind: "image",
+						previewUrl: url,
+					},
+				];
+			});
+		},
+		[isImageFile],
+	);
 
 	// Cleanup on unmount
 	useEffect(() => {
@@ -85,7 +88,7 @@ export function PromptInputBox({
 			const image = files.find((f) => isImageFile(f));
 			if (image) processFile(image);
 		},
-		[processFile],
+		[processFile, isImageFile],
 	);
 
 	const handleRemoveAttachment = (id: string) => {
@@ -187,13 +190,12 @@ export function PromptInputBox({
 					<div className="flex items-center gap-2">
 						<Tooltip>
 							<TooltipTrigger asChild disabled={isRecording}>
-								<button
+								<Button
 									onClick={() => uploadInputRef.current?.click()}
-									className={cn(
-										"flex h-8 w-8 cursor-pointer items-center justify-center rounded-full",
-										"text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground",
-										"disabled:cursor-not-allowed disabled:opacity-50",
-									)}
+									appearance="ghost"
+									size="icon"
+									shape="pill"
+									color={"inherit"}
 									disabled={isRecording}
 									aria-label="Upload image"
 								>
@@ -209,7 +211,7 @@ export function PromptInputBox({
 											e.currentTarget.value = "";
 										}}
 									/>
-								</button>
+								</Button>
 							</TooltipTrigger>
 							<TooltipContent side="top">Upload image</TooltipContent>
 						</Tooltip>
@@ -225,7 +227,7 @@ export function PromptInputBox({
 						<TooltipTrigger asChild>
 							<Button
 								color="inherit"
-								appearance={hasContent ? "default" : "ghost"}
+								appearance={hasContent ? "ghost" : "default"}
 								size="icon"
 								shape="pill"
 								onClick={() => {
@@ -237,7 +239,7 @@ export function PromptInputBox({
 								disabled={isLoading && !hasContent}
 								className={cn(
 									"transition-all duration-200",
-									isRecording && "text-destructive hover:text-destructive/90",
+									isRecording && "text-error hover:text-error/90",
 								)}
 							>
 								{isLoading ? (

@@ -1,7 +1,5 @@
 "use client";
 
-import { Textarea, TooltipProvider } from "@taaply/ui";
-import { cn } from "@taaply/utils";
 import type { ComponentProps, ReactNode } from "react";
 import {
 	createContext,
@@ -11,6 +9,8 @@ import {
 	useRef,
 	useState,
 } from "react";
+import { cn } from "@taaply/utils";
+import { Textarea, TooltipProvider } from "@taaply/ui";
 
 // Context
 interface PromptInputContextType {

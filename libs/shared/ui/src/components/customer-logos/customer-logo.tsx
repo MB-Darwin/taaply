@@ -21,7 +21,7 @@ const logos = [
 
 export function CustomerLogos() {
 	return (
-		<section className="w-full px-4 py-16 md:px-6 lg:px-8">
+		<section className="w-full px-4 py-16 md:px-6 lg:px-8 overflow-hidden">
 			<div className="mx-auto max-w-7xl">
 				<div className="flex flex-col items-center md:flex-row">
 					<div className="md:max-w-44 md:border-r md:pr-6">

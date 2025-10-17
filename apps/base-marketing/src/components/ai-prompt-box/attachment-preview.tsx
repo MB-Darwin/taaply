@@ -1,7 +1,8 @@
 "use client";
 
-import { cn } from "@taaply/utils";
 import { X } from "lucide-react";
+import Image from "next/image";
+import { cn } from "@taaply/utils";
 import type { Attachment } from "../../types/ai-prompt-box.types";
 
 interface AttachmentPreviewProps {
@@ -24,24 +25,26 @@ export function AttachmentPreview({
 			{attachments.map((att) => (
 				<div key={att.id} className="group relative">
 					{att.kind === "image" && (
-						<div
-							className="h-20 w-20 cursor-pointer overflow-hidden rounded-xl border border-border/50 transition-all duration-300 hover:border-border hover:shadow-md"
+						<button
+							type="button"
+							className="h-20 w-20 cursor-pointer overflow-hidden rounded-xl border border-border/50 transition-all duration-300 hover:border-border hover:shadow-md relative group"
 							onClick={() => onImageClick(att.previewUrl)}
-							role="button"
-							tabIndex={0}
 							onKeyDown={(e) => {
 								if (e.key === "Enter" || e.key === " ") {
 									e.preventDefault();
 									onImageClick(att.previewUrl);
 								}
 							}}
+							tabIndex={0}
+							aria-label="View image attachment"
 						>
-							<img
+							<Image
 								src={att.previewUrl}
 								alt="Attachment preview"
 								className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
 							/>
 							<button
+								type="button"
 								onClick={(e) => {
 									e.stopPropagation();
 									onRemove(att.id);
@@ -55,7 +58,7 @@ export function AttachmentPreview({
 							>
 								<X className="h-3 w-3 text-foreground" />
 							</button>
-						</div>
+						</button>
 					)}
 				</div>
 			))}

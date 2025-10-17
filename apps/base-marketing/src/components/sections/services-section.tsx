@@ -1,5 +1,7 @@
 "use client";
 
+import { ChevronDown } from "lucide-react";
+import { useState } from "react";
 import {
 	Avatar,
 	AvatarFallback,
@@ -12,8 +14,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@taaply/ui";
-import { ChevronDown } from "lucide-react";
-import { useState } from "react";
+import Image from "next/image";
 
 const categories = [
 	"Explore",
@@ -31,7 +32,7 @@ const services = [
 		title: "Taaply MS - Merchant Services",
 		description:
 			"Taaply MS helps businesses go digital with their unique website. From restaurants to local shops, Taaply MS empowers merchants to showcase products, engage customers, and grow their business online.",
-		image: "/professional-businessman-in-suit-smiling.jpg",
+		image: "/assets/images/project-1.png",
 		link: "#",
 		views: "1,234",
 		usages: "567",
@@ -40,7 +41,7 @@ const services = [
 		title: "Taaply SALSM - Education Platform",
 		description:
 			"A digital platform designed to help schools modernize learning, streamline administration, and connect students, teachers, and parents in one simple system.",
-		image: "/smiling-woman-student-holding-books.jpg",
+		image: "/assets/images/project-2.png",
 		link: "#",
 		views: "2,891",
 		usages: "1,023",
@@ -51,11 +52,11 @@ export function ServicesSection() {
 	const [activeCategory, setActiveCategory] = useState("Explore");
 
 	return (
-		<section className="mb-16 w-full px-4 md:px-6 lg:px-8">
+		<section className="w-full px-4 mb-16 md:px-6 lg:px-8">
 			<div className="mx-auto max-w-7xl">
 				{/* Header */}
 				<div className="mb-8 flex items-center justify-between">
-					<h1 className="font-bold text-3xl text-foreground">Services</h1>
+					<h1 className="text-3xl font-bold text-foreground">Services</h1>
 				</div>
 
 				{/* Navigation */}
@@ -113,9 +114,9 @@ export function ServicesSection() {
 
 				{/* Service Cards */}
 				<div className="grid gap-6 md:grid-cols-2">
-					{services.map((service, index) => (
+					{services.map((service) => (
 						<Card
-							key={index}
+							key={service.link + " " + service.image}
 							className="group relative overflow-hidden p-6 shadow-lg transition-all hover:shadow-xl"
 						>
 							<div className="flex gap-6">
@@ -133,16 +134,16 @@ export function ServicesSection() {
 								{/* Middle - Content */}
 								<div className="flex flex-1 flex-col justify-between">
 									<div className="space-y-2">
-										<h2 className="font-semibold text-foreground text-xl">
+										<h2 className="text-xl font-semibold text-foreground">
 											{service.title}
 										</h2>
-										<p className="line-clamp-3 text-muted-foreground text-sm leading-relaxed">
+										<p className="text-sm leading-relaxed text-muted-foreground line-clamp-3">
 											{service.description}
 										</p>
 									</div>
 
 									{/* Statistics */}
-									<div className="mt-4 flex items-center gap-6 text-muted-foreground text-sm">
+									<div className="mt-4 flex items-center gap-6 text-sm text-muted-foreground">
 										<div className="flex items-center gap-2">
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
@@ -155,6 +156,7 @@ export function ServicesSection() {
 												strokeLinecap="round"
 												strokeLinejoin="round"
 											>
+												<title>eye</title>
 												<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
 												<circle cx="12" cy="12" r="3" />
 											</svg>
@@ -172,6 +174,7 @@ export function ServicesSection() {
 												strokeLinecap="round"
 												strokeLinejoin="round"
 											>
+												<title>package</title>
 												<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
 												<polyline points="7 10 12 15 17 10" />
 												<line x1="12" x2="12" y1="15" y2="3" />
@@ -183,11 +186,13 @@ export function ServicesSection() {
 
 								{/* Right side - Preview image */}
 								<div className="hidden flex-shrink-0 lg:block">
-									<div className="h-32 w-48 overflow-hidden rounded-lg border border-border/50 bg-muted">
-										<img
+									<div className="relative h-32 w-48 overflow-hidden rounded-lg border border-border/50 bg-muted">
+										<Image
 											src={service.image || "/placeholder.svg"}
 											alt={`${service.title} preview`}
-											className="h-full w-full object-cover transition-transform group-hover:scale-105"
+											fill
+											className="object-cover transition-transform group-hover:scale-105"
+											sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 										/>
 									</div>
 								</div>

@@ -1,6 +1,5 @@
 "use client";
 
-import { Badge, BadgeDot, Particles } from "@taaply/ui";
 import {
 	type MotionValue,
 	motion,
@@ -10,7 +9,26 @@ import {
 	useTransform,
 } from "motion/react";
 import React, { useEffect, useRef } from "react";
-import { PromptInputBox } from "./ai-prompt-box";
+import { PromptInputBox } from "../ai-prompt-box";
+import { Badge, BadgeDot, Particles } from "@taaply/ui";
+
+const useTypingEffect = (text: string, speed: number = 100) => {
+	const [displayedText, setDisplayedText] = React.useState("");
+	const [isComplete, setIsComplete] = React.useState(false);
+
+	useEffect(() => {
+		if (displayedText.length < text.length) {
+			const timeout = setTimeout(() => {
+				setDisplayedText(text.slice(0, displayedText.length + 1));
+			}, speed);
+			return () => clearTimeout(timeout);
+		} else {
+			setIsComplete(true);
+		}
+	}, [displayedText, text, speed]);
+
+	return { displayedText, isComplete };
+};
 
 const PROJECTS = [
 	{ label: "Taaply Connect App", color: "text-primary" },
@@ -29,6 +47,12 @@ export function HeroSection({ scrollProgress }: HeroSectionProps) {
 		console.log("[v0] Message:", message);
 		console.log("[v0] Files:", files);
 	};
+	const { displayedText: welcomeText, isComplete: welcomeComplete } =
+		useTypingEffect("Welcome! I'm ", 80);
+	const { displayedText: taiText } = useTypingEffect(
+		welcomeComplete ? "TAI" : "",
+		100,
+	);
 
 	const springConfig = {
 		stiffness: 100,
@@ -114,7 +138,7 @@ export function HeroSection({ scrollProgress }: HeroSectionProps) {
 	return (
 		<div className="relative flex h-screen w-full items-center justify-center overflow-hidden">
 			<motion.div
-				className="-z-10 pointer-events-none absolute inset-0"
+				className="pointer-events-none absolute inset-0 -z-10"
 				style={{
 					background:
 						"radial-gradient(50% 50% at 50% 10%, #fff 70%, var(--muted) 100%)",
@@ -122,7 +146,7 @@ export function HeroSection({ scrollProgress }: HeroSectionProps) {
 			/>
 
 			<motion.div
-				className="-z-10 pointer-events-none absolute inset-0"
+				className="pointer-events-none absolute inset-0 -z-10"
 				style={{
 					background:
 						"radial-gradient(50% 50% at 50% 10%, #fff 70%, #fff 100%)",
@@ -158,7 +182,16 @@ export function HeroSection({ scrollProgress }: HeroSectionProps) {
 							/>
 							<BadgeDot color="primary" className="relative inline-flex" />
 						</span>
-						Introducing TAI Agent Template
+						Introducing{" "}
+						<span>
+							<strong>T</strong>aaply
+						</span>
+						<span>
+							<strong>A</strong>rtificial
+						</span>
+						<span>
+							<strong>I</strong>ntelligence
+						</span>
 					</Badge>
 				</motion.div>
 
@@ -168,12 +201,18 @@ export function HeroSection({ scrollProgress }: HeroSectionProps) {
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.7, delay: 0.1 }}
-					className="text-balance text-center font-bold text-4xl md:text-6xl"
+					className="text-balance text-center font-bold text-4xl md:text-6xl min-h-[80px]"
 					style={{
 						letterSpacing,
 					}}
 				>
-					Welcome! I am <span className="text-primary">TAI</span>
+					<span>{welcomeText}</span>
+					<span className="text-primary">{taiText}</span>
+					<span
+						className={`inline-block ml-1 ${!welcomeComplete || taiText.length < 3 ? "animate-blink-cursor" : "opacity-0"}`}
+					>
+						|
+					</span>
 				</motion.h1>
 
 				<motion.div aria-hidden style={{ height: titleToSubtitleGap }} />
@@ -208,7 +247,7 @@ export function HeroSection({ scrollProgress }: HeroSectionProps) {
 					>
 						{PROJECTS.map((project, index) => (
 							<motion.div
-								key={index}
+								key={`${project.label} ${project.color}`}
 								initial={{
 									opacity: 0,
 									y: 30,

@@ -1,12 +1,12 @@
 "use client";
 
-import { CustomerLogos, FooterSection, HeroHeader } from "@taaply/ui";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import { HeroSection } from "@/marketing/components/hero-section";
-import { ServicesSection } from "@/marketing/components/services-section";
+import { CustomerLogos, FooterSection, HeroHeader } from "@taaply/ui";
+import { HeroSection } from "@/marketing/components/sections/hero-section";
+import { ServicesSection } from "@/marketing/components/sections/services-section";
 
-export default function Page() {
+export function HomePageClient() {
 	const containerRef = useRef<HTMLDivElement>(null);
 
 	const { scrollYProgress } = useScroll({

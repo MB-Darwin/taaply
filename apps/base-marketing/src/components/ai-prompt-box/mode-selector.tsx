@@ -1,9 +1,9 @@
 "use client";
 
-import { cn } from "@taaply/utils";
 import { BrainCog, FolderCode, Globe } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import type { Mode, ModeConfig } from "../../types/ai-prompt-box.types";
+import { cn } from "@taaply/utils";
+import type { Mode, ModeConfig } from "@/marketing/types/ai-prompt-box.types";
 
 const MODE_CONFIG: Record<Exclude<Mode, "idle">, ModeConfig> = {
 	search: {
@@ -44,7 +44,7 @@ function ModePill({ mode, activeMode, onToggle }: ModePillProps) {
 			type="button"
 			onClick={() => onToggle(mode)}
 			className={cn(
-				"flex h-8 items-center gap-1.5 rounded-full border px-2.5 py-1 transition-all duration-200",
+				"flex h-8 items-center gap-1.5 rounded-full border px-1.5 py-1 transition-all duration-200",
 				active
 					? config.activeClass
 					: "border-transparent text-muted-foreground hover:bg-muted/50 hover:text-foreground",
