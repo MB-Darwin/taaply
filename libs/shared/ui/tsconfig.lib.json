@@ -11,7 +11,12 @@
 			"@nx/next/typings/image.d.ts"
 		],
 		"jsx": "react-jsx",
-		"tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo"
+		"tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo",
+		"baseUrl": ".",
+		"paths": {
+			"@taaply/utils": ["../../utils/src/index.ts"],
+			"@taaply/assets/*": ["../../assets/src/*"]
+		}
 	},
 	"exclude": [
 		"out-tsc",
