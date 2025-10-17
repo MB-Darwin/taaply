@@ -15,12 +15,6 @@
 		"noUnusedLocals": true,
 		"skipLibCheck": true,
 		"strict": true,
-		"target": "es2022",
-		"baseUrl": ".",
-		"paths": {
-			"@taaply/ui": ["libs/shared/ui/src/index.ts"],
-			"@taaply/utils": ["libs/shared/utils/src/index.ts"],
-			"@taaply/assets/*": ["libs/shared/assets/src/*"]
-		}
+		"target": "es2022"
 	}
 }

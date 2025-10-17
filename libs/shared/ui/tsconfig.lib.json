@@ -14,8 +14,8 @@
 		"tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo",
 		"baseUrl": ".",
 		"paths": {
-			"@taaply/utils": ["../../utils/src/index.ts"],
-			"@taaply/assets/*": ["../../assets/src/*"]
+			"@taaply/utils": ["../utils/src/index.ts"],
+			"@taaply/assets/*": ["../assets/src/*"]
 		}
 	},
 	"exclude": [
