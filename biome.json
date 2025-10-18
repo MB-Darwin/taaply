@@ -13,12 +13,15 @@
 			"!**/dist",
 			"!node_modules",
 			"!**/*.spec.ts",
-			"!**/.nx"
+			"!**/.nx",
+			"!**/en.json",
+			"!**/fr.json"
 		]
 	},
 	"formatter": {
 		"enabled": true,
-		"indentStyle": "tab"
+		"indentStyle": "tab",
+		"indentWidth": 2
 	},
 	"linter": {
 		"enabled": true,

@@ -1,9 +1,11 @@
 "use client";
 
-import { CustomerLogos, FooterSection, HeroHeader } from "@taaply/ui";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import { HeroHeader } from "@/marketing/components/layouts/header";
+import { FooterSection } from "@/marketing/components/sections/footer-section";
 import { HeroSection } from "@/marketing/components/sections/hero-section";
+import { LogoSection } from "@/marketing/components/sections/logo-section";
 import { ServicesSection } from "@/marketing/components/sections/services-section";
 
 export function HomePageClient() {
@@ -25,7 +27,7 @@ export function HomePageClient() {
 			</motion.div>
 
 			<main className="relative z-10 min-h-screen bg-background">
-				<CustomerLogos />
+				<LogoSection />
 				<ServicesSection />
 				<FooterSection />
 			</main>

@@ -4,7 +4,14 @@
 	"private": true,
 	"nx": {
 		"targets": {
+			"paraglide": {
+				"command": "paraglide-js compile --project ./apps/base-marketing/project.inlang --outdir ./apps/base-marketing/src/paraglide"
+			},
 			"build": {
+				"dependsOn": [
+					"ui",
+					"paraglide"
+				],
 				"options": {
 					"assets": [
 						{
@@ -13,7 +20,7 @@
 							"output": "assets"
 						},
 						{
-							"input": "libs/shared/assets/src",
+							"input": "libs/shared/assets/src/icons",
 							"glob": "favicon.ico",
 							"output": ""
 						}
@@ -21,5 +28,10 @@
 				}
 			}
 		}
-	}
+	},
+	"devDependencies": {
+		"@inlang/paraglide-js": "2.4.0",
+		"@inlang/cli": "^3.0.0"
+	},
+	"scripts": {}
 }

@@ -4,7 +4,7 @@
 	"license": "MIT",
 	"scripts": {
 		"format": "exec biome format --write  .",
-		"check": "exec biome check --write --unsafe ."
+		"check": "exec biome check --write --unsafe --max-diagnostics=500 ."
 	},
 	"private": true,
 	"dependencies": {
@@ -59,6 +59,8 @@
 		"@types/react-dom": "19.0.0",
 		"@vitejs/plugin-react": "^4.2.0",
 		"@vitest/ui": "^3.0.0",
+		"@inlang/paraglide-js": "2.4.0",
+		"@inlang/cli": "^3.0.0",
 		"jiti": "2.4.2",
 		"jsdom": "~22.1.0",
 		"nx": "21.6.3",

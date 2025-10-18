@@ -206,10 +206,10 @@
 		0 0.2rem 0.8rem 0 hsl(220 12% 15% / 0.04), 0 1px 2px -1px
 		hsl(220 12% 15% / 0.04);
 	--shadow-md:
-		0 0.2rem 0.8rem 0 hsl(220 12% 15% / 0.04), 0 2px 4px -1px
+		0 0.2rem 0.8rem 0 hsl(220 12% 15% / 0.04), 0 2px 20px
 		hsl(220 12% 15% / 0.04);
 	--shadow-lg:
-		0 0.2rem 0.8rem 0 hsl(220 12% 15% / 0.04), 0 4px 6px -1px
+		0 0.2rem 0.8rem 0 hsl(220 12% 15% / 0.04), 0 4px 20px -1px
 		hsl(220 12% 15% / 0.04);
 	--shadow-xl:
 		0 0.2rem 0.8rem 0 hsl(220 12% 15% / 0.04), 0 8px 10px -1px

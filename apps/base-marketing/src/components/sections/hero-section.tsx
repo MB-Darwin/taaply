@@ -10,6 +10,7 @@ import {
 	useTransform,
 } from "motion/react";
 import React, { useEffect, useRef } from "react";
+import { m } from "@/marketing/paraglide/messages"; // Add this import
 import { PromptInputBox } from "../ai-prompt-box";
 
 const useTypingEffect = (text: string, speed: number = 100) => {
@@ -35,27 +36,31 @@ const useTypingEffect = (text: string, speed: number = 100) => {
 	return { displayedText, isComplete };
 };
 
-const PROJECTS = [
-	{ label: "Taaply Connect App", color: "text-primary" },
-	{ label: "MS Web App", color: "text-success" },
-	{ label: "Corporate Web App", color: "text-warning" },
-	{ label: "SaaS Web App", color: "text-error" },
-];
-
+// ✅ Moved inside component to access m.*
 interface HeroSectionProps {
 	scrollProgress: MotionValue<number>;
 }
 
 export function HeroSection({ scrollProgress }: HeroSectionProps) {
+	// ✅ Projects array using translations
+	const PROJECTS = [
+		{ label: m.hero_project_taaply_connect_app(), color: "text-primary" },
+		{ label: m.hero_project_ms_web_app(), color: "text-success" },
+		{ label: m.hero_project_corporate_web_app(), color: "text-warning" },
+		{ label: m.hero_project_saas_web_app(), color: "text-error" },
+	];
+
 	const [palette, setPalette] = React.useState<string[]>(["#6366F1"]);
 	const handleSend = (message: string, files?: File[]) => {
 		console.log("[v0] Message:", message);
 		console.log("[v0] Files:", files);
 	};
+
+	// ✅ Using translated strings
 	const { displayedText: welcomeText, isComplete: welcomeComplete } =
-		useTypingEffect("Welcome! I'm ", 80);
+		useTypingEffect(m.hero_title_welcome(), 80);
 	const { displayedText: taiText } = useTypingEffect(
-		welcomeComplete ? "TAI" : "",
+		welcomeComplete ? m.hero_title_ai_name() : "",
 		100,
 	);
 
@@ -187,15 +192,18 @@ export function HeroSection({ scrollProgress }: HeroSectionProps) {
 							/>
 							<BadgeDot color="primary" className="relative inline-flex" />
 						</span>
-						Introducing{" "}
+						{m.hero_badge_introducing()}{" "}
 						<span>
-							<strong>T</strong>aaply
+							<strong>T</strong>
+							{m.hero_badge_taaply().slice(1)}
 						</span>
 						<span>
-							<strong>A</strong>rtificial
+							<strong>A</strong>
+							{m.hero_badge_artificial().slice(1)}
 						</span>
 						<span>
-							<strong>I</strong>ntelligence
+							<strong>I</strong>
+							{m.hero_badge_intelligence().slice(1)}
 						</span>
 					</Badge>
 				</motion.div>
@@ -228,7 +236,7 @@ export function HeroSection({ scrollProgress }: HeroSectionProps) {
 					transition={{ duration: 0.7, delay: 0.2 }}
 					className="text-pretty text-center text-base text-muted-foreground md:text-lg"
 				>
-					AI empowering Africa's people and progress
+					{m.hero_subtitle_tagline()}
 				</motion.p>
 
 				<motion.div aria-hidden style={{ height: subtitleToPromptGap }} />

@@ -4,6 +4,7 @@ import { Button, Tooltip, TooltipContent, TooltipTrigger } from "@taaply/ui";
 import { cn } from "@taaply/utils";
 import { ArrowUp, Mic, Paperclip, Square, StopCircle } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { m } from "@/marketing/paraglide/messages";
 import type {
 	Attachment,
 	Mode,
@@ -16,7 +17,6 @@ import {
 	PromptInput,
 	PromptInputActions,
 	PromptInputTextarea,
-	// useMergedRefs,
 } from "./prompt-input";
 import { VoiceRecorder } from "./voice-recorder";
 
@@ -42,11 +42,11 @@ export function PromptInputBox({
 	const processFile = useCallback(
 		(file: File) => {
 			if (!isImageFile(file)) {
-				console.warn("Only image files are allowed");
+				console.warn(m.prompt_input_warning_images_only());
 				return;
 			}
 			if (file.size > MAX_FILE_SIZE) {
-				console.warn("File too large (max 10MB)");
+				console.warn(m.prompt_input_warning_file_too_large());
 				return;
 			}
 
@@ -104,11 +104,11 @@ export function PromptInputBox({
 
 		const prefix =
 			mode === "search"
-				? "[Search: "
+				? m.prompt_input_prefix_search()
 				: mode === "think"
-					? "[Think: "
+					? m.prompt_input_prefix_think()
 					: mode === "canvas"
-						? "[Canvas: "
+						? m.prompt_input_prefix_canvas()
 						: "";
 		const formatted = prefix ? `${prefix}${input}]` : input;
 
@@ -127,13 +127,15 @@ export function PromptInputBox({
 	};
 
 	const handleStartRecording = () => {
-		// Implement MediaRecorder API here
-		console.log("Starting recording...");
+		console.log(m.prompt_input_console_start_recording());
 	};
 
 	const handleStopRecording = (duration: number) => {
 		setIsRecording(false);
-		onSend(`[Voice message - ${duration} seconds]`, []);
+		onSend(
+			m.prompt_input_voice_message_format({ duration: duration.toString() }),
+			[],
+		);
 	};
 
 	const hasContent = input.trim() !== "" || attachments.length > 0;
@@ -142,7 +144,7 @@ export function PromptInputBox({
 		placeholder ??
 		(mode !== "idle" && MODE_CONFIG[mode as Exclude<Mode, "idle">]
 			? MODE_CONFIG[mode as Exclude<Mode, "idle">].placeholder
-			: "Type your message here...");
+			: m.prompt_input_placeholder_default());
 
 	return (
 		<div className="rainbow-border after:-z-10 relative items-center justify-center rounded-3xl text-sm after:absolute after:inset-0 after:block after:rounded-full">
@@ -155,7 +157,6 @@ export function PromptInputBox({
 				disabled={isLoading || isRecording}
 				className={cn(
 					"w-full transition-all duration-300 ease-in-out",
-
 					className,
 				)}
 				onDragOver={handleDragOver}
@@ -197,7 +198,7 @@ export function PromptInputBox({
 									shape="pill"
 									color={"inherit"}
 									disabled={isRecording}
-									aria-label="Upload image"
+									aria-label={m.prompt_input_aria_upload_image()}
 								>
 									<Paperclip className="h-5 w-5" />
 									<input
@@ -213,7 +214,9 @@ export function PromptInputBox({
 									/>
 								</Button>
 							</TooltipTrigger>
-							<TooltipContent side="top">Upload image</TooltipContent>
+							<TooltipContent side="top">
+								{m.prompt_input_tooltip_upload_image()}
+							</TooltipContent>
 						</Tooltip>
 
 						<ModeSelector
@@ -231,7 +234,7 @@ export function PromptInputBox({
 								size="icon"
 								shape="pill"
 								onClick={() => {
-									if (isLoading) return; // Add stop generation logic if needed
+									if (isLoading) return;
 									if (isRecording) setIsRecording(false);
 									else if (hasContent) handleSubmit();
 									else setIsRecording(true);
@@ -255,12 +258,12 @@ export function PromptInputBox({
 						</TooltipTrigger>
 						<TooltipContent side="top">
 							{isLoading
-								? "Stop generation"
+								? m.prompt_input_tooltip_stop_generation()
 								: isRecording
-									? "Stop recording"
+									? m.prompt_input_tooltip_stop_recording()
 									: hasContent
-										? "Send message"
-										: "Voice message"}
+										? m.prompt_input_tooltip_send_message()
+										: m.prompt_input_tooltip_voice_message()}
 						</TooltipContent>
 					</Tooltip>
 				</PromptInputActions>

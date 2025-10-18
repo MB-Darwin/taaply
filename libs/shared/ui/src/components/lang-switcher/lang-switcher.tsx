@@ -1,5 +1,7 @@
 "use client";
 
+import { LanguageOutline } from "@taaply/assets/icons/language-outline";
+import React from "react";
 import {
 	Select,
 	SelectContent,
@@ -7,27 +9,28 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "../select";
-import { LanguageOutline } from "@taaply/assets/icons/language-outline";
-import React from "react";
 
 interface LangSwitcherProps {
-	defaultLocale?: string;
-	setLocale?: (locale: string) => void;
-	locales?: string[];
+	defaultLocale?: () => "en" | "fr";
+	setLocale?: (
+		newLocale: "en" | "fr",
+		options?: { reload?: boolean },
+	) => void | Promise<void>;
+	locales?: readonly ["en", "fr"];
 }
 
 export function LanguageSwitcher({
-	defaultLocale = "en",
+	defaultLocale = () => "en",
 	setLocale,
 	locales = ["en", "fr"],
 }: LangSwitcherProps) {
 	const id = React.useId();
 
 	return (
-		<Select defaultValue={defaultLocale} onValueChange={setLocale}>
+		<Select defaultValue={defaultLocale()} onValueChange={setLocale}>
 			<SelectTrigger
 				aria-label="Select language"
-				className="border-none px-2 capitalize shadow-none hover:cursor-pointer hover:text-accent-foreground [&>svg]:shrink-0 [&>svg]:text-muted-foreground/80"
+				className="border-none bg-transparent px-2 capitalize shadow-none hover:cursor-pointer hover:text-accent-foreground [&>svg]:shrink-0 [&>svg]:text-muted-foreground/80"
 				id={`language-${id}`}
 			>
 				<LanguageOutline aria-hidden="true" />
