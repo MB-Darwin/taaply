@@ -40,18 +40,3 @@ export const sliderVariants: Variants = {
 	hidden: { opacity: 0 },
 	visible: { opacity: 1 },
 };
-
-// Reusable transitions (use via the `transition` prop)
-export const transitions = {
-	easeOut: { duration: 0.3, ease: "easeOut" },
-	easeOutMed: { duration: 0.5, ease: "easeOut" },
-	container: {
-		duration: 0.6,
-		easing: cubicBezier(0.4, 0, 0.2, 1),
-	},
-	slider: {
-		duration: 0.5,
-		delay: 0.2,
-		ease: "easeOut",
-	},
-};

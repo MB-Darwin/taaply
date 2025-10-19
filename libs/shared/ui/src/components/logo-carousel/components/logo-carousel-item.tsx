@@ -2,7 +2,7 @@
 
 import { cn } from "@taaply/utils";
 import { motion } from "motion/react";
-import { logoItemVariants, transitions } from "../animations";
+import { logoItemVariants } from "../animations";
 import type { LogoCarouselItemProps } from "../types";
 
 /**
@@ -27,7 +27,7 @@ export function LogoCarouselItem({
 			initial="rest"
 			whileHover="hover"
 			variants={logoItemVariants}
-			transition={transitions.easeOut}
+			transition={{ duration: 0.3, ease: "easeOut" }}
 		>
 			{children}
 		</motion.div>

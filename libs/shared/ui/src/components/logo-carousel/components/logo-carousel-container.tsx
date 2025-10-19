@@ -1,8 +1,8 @@
 "use client";
 
 import { cn } from "@taaply/utils";
-import { motion } from "motion/react";
-import { containerVariants, transitions } from "../animations";
+import { cubicBezier, motion } from "motion/react";
+import { containerVariants } from "../animations";
 import type { LogoCarouselContainerProps } from "../types";
 
 /**
@@ -23,7 +23,10 @@ export function LogoCarouselContainer({
 			whileInView="visible"
 			viewport={{ once: true, margin: "-100px" }}
 			variants={containerVariants}
-			transition={transitions.container}
+			transition={{
+				duration: 0.6,
+				ease: cubicBezier(0.4, 0, 0.2, 1),
+			}}
 		>
 			<div className="mx-auto max-w-7xl">
 				<div className="flex flex-col items-center md:flex-row">{children}</div>
