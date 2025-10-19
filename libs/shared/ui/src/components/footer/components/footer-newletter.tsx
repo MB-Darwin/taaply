@@ -49,13 +49,20 @@ export function FooterNewsletter({
 		<motion.div
 			className={cn("space-y-3", className)}
 			variants={columnVariants}
+			transition={{
+				duration: 0.5,
+				ease: "easeOut",
+				delayChildren: 0.2,
+				staggerChildren: 0.08,
+				// delay: 0.2 + i * 0.08,
+			}}
 		>
 			<h3 className="font-medium text-foreground text-sm">{title}</h3>
 
 			<form onSubmit={handleSubmit} className="space-y-2">
 				<div className="flex gap-2">
 					<input
-						type="email"
+						type="name"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						placeholder={placeholder}

@@ -13,9 +13,10 @@ import type { FooterLogoProps } from "../types";
 export function FooterLogo({ children, href, className }: FooterLogoProps) {
 	const content = (
 		<motion.div
+			variants={logoVariants}
 			initial="rest"
 			whileHover="hover"
-			variants={logoVariants}
+			transition={{ duration: 0.3, ease: "easeOut" }}
 			className={cn("inline-block", className)}
 		>
 			{children}

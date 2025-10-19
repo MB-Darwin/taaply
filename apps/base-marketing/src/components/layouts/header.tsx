@@ -23,7 +23,7 @@ export function HeroHeader() {
 			<Header.Container>
 				{/* Logo Section */}
 				<div className="flex w-full items-center justify-between gap-12 lg:w-auto">
-					<Header.Logo href={"/"}>
+					<Header.Logo href={localizeHref("/")}>
 						<Image
 							src={taaplyLogo}
 							alt={m.common_brand_taaply_alt()}

@@ -19,6 +19,7 @@ export function FooterBottom({ children, className }: FooterBottomProps) {
 				className,
 			)}
 			variants={bottomBarVariants}
+			transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
 		>
 			{children}
 		</motion.div>

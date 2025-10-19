@@ -2,7 +2,7 @@
 
 import { cn } from "@taaply/utils";
 import { motion } from "motion/react";
-import { containerVariants } from "../animations";
+import { containerVariants, transitions } from "../animations";
 import type { LogoCarouselContainerProps } from "../types";
 
 /**
@@ -23,6 +23,7 @@ export function LogoCarouselContainer({
 			whileInView="visible"
 			viewport={{ once: true, margin: "-100px" }}
 			variants={containerVariants}
+			transition={transitions.container}
 		>
 			<div className="mx-auto max-w-7xl">
 				<div className="flex flex-col items-center md:flex-row">{children}</div>

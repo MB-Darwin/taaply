@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@taaply/utils";
-import { motion } from "motion/react";
+import { motion, stagger } from "motion/react";
 import { gridVariants } from "../animations";
 import type { FooterGridProps } from "../types";
 
@@ -30,6 +30,7 @@ export function FooterGrid({
 				className,
 			)}
 			variants={gridVariants}
+			transition={{ delayChildren: stagger(0.08, { startDelay: 0.2 }) }}
 		>
 			{children}
 		</motion.div>

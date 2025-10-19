@@ -2,7 +2,7 @@
 
 import { cn } from "@taaply/utils";
 import { motion } from "motion/react";
-import { containerVariants } from "../animations";
+import { containerVariants, transitions } from "../animations";
 import { useHeader } from "../hooks/useHeader";
 import type { HeaderContainerProps } from "../types";
 
@@ -29,6 +29,7 @@ export function HeaderContainer({ children, className }: HeaderContainerProps) {
 				initial="initial"
 				animate={isScrolled ? "scrolled" : "initial"}
 				variants={containerVariants}
+				transition={transitions.container}
 			>
 				<div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
 					{children}

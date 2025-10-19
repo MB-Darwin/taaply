@@ -2,7 +2,7 @@
 
 import { cn } from "@taaply/utils";
 import { motion } from "motion/react";
-import { titleVariants } from "../animations";
+import { titleVariants, transitions } from "../animations";
 import type { LogoCarouselTitleProps } from "../types";
 
 /**
@@ -25,6 +25,7 @@ export function LogoCarouselTitle({
 				className,
 			)}
 			variants={titleVariants}
+			transition={transitions.easeOutMed}
 		>
 			<h2 className="font-medium text-muted-foreground text-sm">{children}</h2>
 		</motion.div>

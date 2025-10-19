@@ -3,7 +3,7 @@
 import { cn } from "@taaply/utils";
 import { motion } from "motion/react";
 import { InfiniteSlider } from "../../infinite-slider/infinite-slider";
-import { sliderVariants } from "../animations";
+import { sliderVariants, transitions } from "../animations";
 import { useLogoCarousel } from "../hooks/use-logo-carousel";
 import type { LogoCarouselSliderProps } from "../types";
 import { LogoCarouselBlur } from "./logo-carousel-blur";
@@ -24,6 +24,7 @@ export function LogoCarouselSlider({
 		<motion.div
 			className={cn("relative py-6 md:w-[calc(100%-11rem)]", className)}
 			variants={sliderVariants}
+			transition={transitions.slider}
 		>
 			<InfiniteSlider gap={gap} speed={speed} speedOnHover={speedOnHover}>
 				{children}

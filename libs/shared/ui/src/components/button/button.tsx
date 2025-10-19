@@ -164,7 +164,7 @@ const buttonVariants = cva(
 				variant: "outline",
 				color: "inherit",
 				className:
-					"border-border bg-transparent text-foreground hover:bg-foreground/10 data-[state=open]:bg-accent",
+					"border-border bg-blur-sm text-foreground hover:bg-foreground/10 data-[state=open]:bg-accent",
 			},
 			{
 				variant: "outline",

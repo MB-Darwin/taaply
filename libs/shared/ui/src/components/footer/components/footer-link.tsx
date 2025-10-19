@@ -25,7 +25,13 @@ export function FooterLink({
 		: {};
 
 	return (
-		<motion.li variants={linkItemVariants}>
+		<motion.li
+			variants={linkItemVariants}
+			transition={{
+				duration: 0.3,
+				ease: "easeOut",
+			}}
+		>
 			<Link
 				href={href}
 				className={cn(

@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@taaply/utils";
-import { motion } from "motion/react";
+import { motion, stagger } from "motion/react";
 import { columnVariants, linkListVariants } from "../animations";
 import type { FooterColumnProps } from "../types";
 
@@ -31,8 +31,17 @@ export function FooterColumn({
 				className,
 			)}
 			variants={columnVariants}
+			transition={{
+				duration: 0.5,
+				ease: "easeOut",
+			}}
 		>
-			<motion.div variants={linkListVariants}>{children}</motion.div>
+			<motion.div
+				variants={linkListVariants}
+				transition={{ delayChildren: stagger(0.05) }}
+			>
+				{children}
+			</motion.div>
 		</motion.div>
 	);
 }

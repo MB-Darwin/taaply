@@ -1,4 +1,4 @@
-import { cubicBezier, stagger } from "motion";
+import { cubicBezier } from "motion";
 import type { Variants } from "motion/react";
 
 /**
@@ -43,13 +43,15 @@ export const sliderVariants: Variants = {
 
 // Reusable transitions (use via the `transition` prop)
 export const transitions = {
-	easeOut: { duration: 0.3, easing: "ease-out" as const },
-	easeOutMed: { duration: 0.5, easing: "ease-out" as const },
+	easeOut: { duration: 0.3, ease: "easeOut" },
+	easeOutMed: { duration: 0.5, ease: "easeOut" },
 	container: {
 		duration: 0.6,
 		easing: cubicBezier(0.4, 0, 0.2, 1),
 	},
-	slider: { duration: 0.5, delay: 0.2, easing: "ease-out" as const },
-	// For staggering children (option 1)
-	listStagger: { delay: stagger(0.1) },
+	slider: {
+		duration: 0.5,
+		delay: 0.2,
+		ease: "easeOut",
+	},
 };
