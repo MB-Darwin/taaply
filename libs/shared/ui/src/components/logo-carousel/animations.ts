@@ -1,4 +1,3 @@
-import { cubicBezier } from "motion";
 import type { Variants } from "motion/react";
 
 /**
