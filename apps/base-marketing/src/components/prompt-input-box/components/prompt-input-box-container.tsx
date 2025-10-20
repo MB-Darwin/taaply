@@ -1,8 +1,8 @@
 "use client";
 
+import { cn } from "@taaply/utils";
 import { motion, stagger, useReducedMotion } from "motion/react";
 import { containerVariants } from "../animations";
-import { cn } from "@taaply/utils";
 import { usePromptInputBox } from "../hooks/use-prompt-input-box";
 
 /**
@@ -40,7 +40,7 @@ export function PromptInputBoxContainer({
 		>
 			<div
 				className={cn(
-					"w-full p-3 transition-all rounded-xl bg-accent duration-300 gap-2",
+					"w-full gap-2 rounded-xl bg-accent p-3 transition-all duration-300",
 					// "focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-1 focus-within:ring-offset-background",
 				)}
 			>

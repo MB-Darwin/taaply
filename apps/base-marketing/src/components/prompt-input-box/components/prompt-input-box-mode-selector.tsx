@@ -3,7 +3,6 @@
 import { cn } from "@taaply/utils";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { usePromptInputBox } from "../hooks/use-prompt-input-box";
-import { useId } from "react";
 
 function Divider() {
 	return (
@@ -66,7 +65,7 @@ function ModePill({
 						animate={{ width: "auto", opacity: 1 }}
 						exit={{ width: 0, opacity: 0 }}
 						transition={{ duration: reduce ? 0 : 0.18 }}
-						className="overflow-hidden whitespace-nowrap text-xs font-medium"
+						className="overflow-hidden whitespace-nowrap font-medium text-xs"
 					>
 						{label}
 					</motion.span>
@@ -84,7 +83,6 @@ export function PromptInputBoxModeSelector({
 }: {
 	className?: string;
 }) {
-	const id = useId();
 	const { mode, setMode, isRecording, modeConfig } = usePromptInputBox();
 
 	const toggle = (m: "search" | "think" | "canvas") =>

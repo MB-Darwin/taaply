@@ -11,8 +11,6 @@ import {
 } from "motion/react";
 import React, { useEffect, useRef } from "react";
 import { m } from "@/marketing/paraglide/messages"; // Add this import
-import { PromptInputBox } from "../prompt-input-box";
-import { PromptSection } from "./prompt-section";
 
 const useTypingEffect = (text: string, speed: number = 100) => {
 	const [displayedText, setDisplayedText] = React.useState("");
@@ -52,10 +50,6 @@ export function HeroSection({ scrollProgress }: HeroSectionProps) {
 	];
 
 	const [palette, setPalette] = React.useState<string[]>(["#6366F1"]);
-	const handleSend = (message: string, files?: File[]) => {
-		console.log("[v0] Message:", message);
-		console.log("[v0] Files:", files);
-	};
 
 	// ✅ Using translated strings
 	const { displayedText: welcomeText, isComplete: welcomeComplete } =
@@ -248,7 +242,8 @@ export function HeroSection({ scrollProgress }: HeroSectionProps) {
 					transition={{ duration: 0.7, delay: 0.3 }}
 					className="w-full sm:px-6 lg:max-w-4xl"
 				>
-					<PromptSection />
+					{/* <PromptSection /> */}
+					<h5>Prompt input</h5>
 
 					<motion.div aria-hidden style={{ height: promptToProjectsGap }} />
 

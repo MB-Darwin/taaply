@@ -1,27 +1,25 @@
 {
-  "extends": "./tsconfig.base.json",
-  "compileOnSave": false,
-  "files": [],
-  "references": [
-    {
-      "path": "./apps/base-marketing"
-    },
-    {
-      "path": "./libs/shared/ui"
-    },
-    {
-      "path": "./libs/shared/utils"
-    },
-    {
-      "path": "./apps/test"
-    }
-  ],
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "./*"
-      ]
-    }
-  }
+	"extends": "./tsconfig.base.json",
+	"compileOnSave": false,
+	"files": [],
+	"references": [
+		{
+			"path": "./apps/base-marketing"
+		},
+		{
+			"path": "./libs/shared/ui"
+		},
+		{
+			"path": "./libs/shared/utils"
+		},
+		{
+			"path": "./apps/test"
+		}
+	],
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./*"]
+		}
+	}
 }

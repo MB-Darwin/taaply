@@ -1,15 +1,15 @@
 "use client";
 
+import { BrainCog, FolderCode, Globe } from "lucide-react";
 import { createContext, useEffect, useState } from "react";
 import type {
-	PromptInputBoxContextValue,
-	PromptInputBoxProps,
-	Mode,
 	Attachment,
-	PromptInputBoxI18n,
+	Mode,
 	ModeConfig,
+	PromptInputBoxContextValue,
+	PromptInputBoxI18n,
+	PromptInputBoxProps,
 } from "./types";
-import { BrainCog, FolderCode, Globe } from "lucide-react";
 
 export const PromptInputBoxContext =
 	createContext<PromptInputBoxContextValue | null>(null);

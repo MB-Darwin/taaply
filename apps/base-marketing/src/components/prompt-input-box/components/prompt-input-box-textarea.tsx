@@ -1,6 +1,6 @@
 "use client";
 
-import { Input, Textarea } from "@taaply/ui";
+import { Input } from "@taaply/ui";
 import { cn } from "@taaply/utils";
 import { useEffect, useRef } from "react";
 import { usePromptInputBox } from "../hooks/use-prompt-input-box";
@@ -65,7 +65,7 @@ export function PromptInputBoxTextarea({
 				disabled={isLoading || isRecording}
 				aria-label="Prompt input"
 				className={cn(
-					"h-auto resize border-border p-0 shadow-none bg-transparent text-base focus-visible:ring-0 placeholder:text-sm",
+					"h-auto resize border-border bg-transparent p-0 text-base shadow-none placeholder:text-sm focus-visible:ring-0",
 					className,
 				)}
 			/>

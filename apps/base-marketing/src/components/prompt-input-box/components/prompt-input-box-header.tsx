@@ -17,7 +17,7 @@ export function PromptInputBoxHeader({
 	return (
 		<div
 			className={cn(
-				"mb-2 flex items-center justify-between text-xs text-muted-foreground",
+				"mb-2 flex items-center justify-between text-muted-foreground text-xs",
 				className,
 			)}
 		>

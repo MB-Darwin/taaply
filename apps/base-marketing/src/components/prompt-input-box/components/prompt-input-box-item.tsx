@@ -1,8 +1,8 @@
 "use client";
 
+import { cn } from "@taaply/utils";
 import { motion } from "motion/react";
 import { itemVariants } from "../animations";
-import { cn } from "@taaply/utils";
 
 /**
  * Generic animated item for composing custom rows/content

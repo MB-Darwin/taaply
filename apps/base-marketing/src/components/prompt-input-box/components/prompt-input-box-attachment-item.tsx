@@ -1,8 +1,8 @@
 "use client";
 
+import { cn } from "@taaply/utils";
 import { X } from "lucide-react";
 import Image from "next/image";
-import { cn } from "@taaply/utils";
 import { usePromptInputBox } from "../hooks/use-prompt-input-box";
 
 export function PromptInputBoxAttachmentItem({
@@ -50,8 +50,8 @@ export function PromptInputBoxAttachmentItem({
 					removeAttachment(attachment.id);
 				}}
 				className={cn(
-					"absolute right-1 top-1 rounded-full bg-background/90 p-1",
-					"opacity-0 transition-opacity duration-200 group-hover:opacity-100 focus:opacity-100",
+					"absolute top-1 right-1 rounded-full bg-background/90 p-1",
+					"opacity-0 transition-opacity duration-200 focus:opacity-100 group-hover:opacity-100",
 					"hover:bg-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring",
 				)}
 				aria-label="Remove image"

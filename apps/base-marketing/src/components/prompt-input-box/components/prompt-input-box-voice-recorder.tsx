@@ -76,7 +76,7 @@ export function PromptInputBoxVoiceRecorder({
 		>
 			<div className="mb-3 flex items-center gap-2">
 				<div className="h-2 w-2 animate-pulse rounded-full bg-destructive" />
-				<span className="text-sm font-mono text-muted-foreground">
+				<span className="font-mono text-muted-foreground text-sm">
 					{fmt(time)}
 				</span>
 			</div>

@@ -1,8 +1,8 @@
 "use client";
 
 import { Button, Tooltip, TooltipContent, TooltipTrigger } from "@taaply/ui";
-import { ArrowUp, Mic, Square, StopCircle } from "lucide-react";
 import { cn } from "@taaply/utils";
+import { ArrowUp, Mic, Square, StopCircle } from "lucide-react";
 import { usePromptInputBox } from "../hooks/use-prompt-input-box";
 
 export function PromptInputBoxSendButton({

@@ -1,8 +1,8 @@
 "use client";
 
-import type { PromptInputBoxProps } from "./types";
-import { PromptInputBoxProvider } from "./prompt-input-box-context";
 import { cn } from "@taaply/utils";
+import { PromptInputBoxProvider } from "./prompt-input-box-context";
+import type { PromptInputBoxProps } from "./types";
 
 /**
  * PromptInputBox - Compound component root.

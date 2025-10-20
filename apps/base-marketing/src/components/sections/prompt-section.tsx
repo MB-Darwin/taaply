@@ -1,11 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { m } from "@/marketing/paraglide/messages";
 import { PromptInputBox } from "../prompt-input-box";
-import { useState } from "react";
 
 export function PromptSection() {
-	const [value, setValue] = useState();
+	const [value, setValue] = useState<string>("");
 	const handleSend = (message: string, files?: File[]) => {
 		console.log("Message:", message);
 		console.log("Files:", files);

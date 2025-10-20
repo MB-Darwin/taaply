@@ -1,9 +1,9 @@
 "use client";
 
+import { cn } from "@taaply/utils";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { attachmentItemVariants } from "../animations";
 import { usePromptInputBox } from "../hooks/use-prompt-input-box";
-import { cn } from "@taaply/utils";
 import { PromptInputBoxAttachmentItem } from "./prompt-input-box-attachment-item";
 
 export function PromptInputBoxAttachments({
@@ -18,7 +18,7 @@ export function PromptInputBoxAttachments({
 
 	return (
 		<motion.div
-			className={cn("flex flex-wrap mb-2", className)}
+			className={cn("mb-2 flex flex-wrap", className)}
 			initial="hidden"
 			animate="visible"
 			transition={{
