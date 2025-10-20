@@ -2,23 +2,18 @@
 
 import { cn } from "@taaply/utils";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { usePromptInputBox } from "../hooks/use-prompt-input-box";
 
-interface VoiceRecorderProps {
-	isRecording: boolean;
-	onStartRecording?: () => void;
-	onStopRecording?: (duration: number) => void;
-	visualizerBars?: number;
-}
-
-export function VoiceRecorder({
-	isRecording,
-	onStartRecording,
-	onStopRecording,
+export function PromptInputBoxVoiceRecorder({
 	visualizerBars = 32,
-}: VoiceRecorderProps) {
+}: {
+	visualizerBars?: number;
+}) {
+	const { isRecording, onStartRecording, onStopRecording } =
+		usePromptInputBox();
 	const [time, setTime] = useState(0);
 	const intervalRef = useRef<number | null>(null);
-	const prevRecordingRef = useRef(isRecording);
+	const prevRef = useRef(isRecording);
 	const lastTimeRef = useRef(0);
 
 	useEffect(() => {
@@ -26,32 +21,29 @@ export function VoiceRecorder({
 	}, [time]);
 
 	useEffect(() => {
-		const started = isRecording && !prevRecordingRef.current;
-		const stopped = !isRecording && prevRecordingRef.current;
+		const started = isRecording && !prevRef.current;
+		const stopped = !isRecording && prevRef.current;
 
 		if (started) {
-			onStartRecording?.();
+			onStartRecording();
 			intervalRef.current = window.setInterval(
 				() => setTime((t) => t + 1),
 				1000,
 			);
 		}
-
 		if (stopped) {
 			if (intervalRef.current) {
-				clearInterval(intervalRef.current);
+				window.clearInterval(intervalRef.current);
 				intervalRef.current = null;
 			}
-			const duration = lastTimeRef.current;
+			onStopRecording(lastTimeRef.current);
 			setTime(0);
-			onStopRecording?.(duration);
 		}
-
-		prevRecordingRef.current = isRecording;
+		prevRef.current = isRecording;
 
 		return () => {
 			if (intervalRef.current) {
-				clearInterval(intervalRef.current);
+				window.clearInterval(intervalRef.current);
 				intervalRef.current = null;
 			}
 		};
@@ -67,10 +59,10 @@ export function VoiceRecorder({
 		[visualizerBars],
 	);
 
-	const formatTime = (seconds: number) => {
-		const mins = Math.floor(seconds / 60);
-		const secs = seconds % 60;
-		return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+	const fmt = (s: number) => {
+		const m = Math.floor(s / 60);
+		const sec = s % 60;
+		return `${m.toString().padStart(2, "0")}:${sec.toString().padStart(2, "0")}`;
 	};
 
 	return (
@@ -84,14 +76,14 @@ export function VoiceRecorder({
 		>
 			<div className="mb-3 flex items-center gap-2">
 				<div className="h-2 w-2 animate-pulse rounded-full bg-destructive" />
-				<span className="font-mono text-muted-foreground text-sm">
-					{formatTime(time)}
+				<span className="text-sm font-mono text-muted-foreground">
+					{fmt(time)}
 				</span>
 			</div>
 			<div className="flex h-12 w-full items-center justify-center gap-0.5 px-4">
-				{bars.map((b) => (
+				{bars.map((b, idx) => (
 					<div
-						key={b.height - b.duration}
+						key={`${b.height}-${b.duration}-${idx}`}
 						className="h-full w-0.5 animate-pulse rounded-full bg-foreground/50"
 						style={{
 							height: `${b.height}%`,

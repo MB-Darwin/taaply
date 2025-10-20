@@ -39,13 +39,13 @@ export function HeaderMobileToggle({
 			>
 				<motion.div
 					variants={toggleLineVariants.top}
-					className="absolute top-0 left-0"
+					className="absolute top-0 left-0 origin-center"
 				>
 					<SolidLineIcon className="m-auto" aria-hidden="true" />
 				</motion.div>
 				<motion.div
 					variants={toggleLineVariants.bottom}
-					className="absolute bottom-0 left-0"
+					className="absolute bottom-0 left-0 origin-center"
 				>
 					<SolidLineIcon className="m-auto" aria-hidden="true" />
 				</motion.div>

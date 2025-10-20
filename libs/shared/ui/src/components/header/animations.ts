@@ -34,11 +34,11 @@ export const menuItemVariants: Variants = {
 export const toggleLineVariants = {
 	top: {
 		closed: { rotate: 0, y: 0 },
-		open: { rotate: 45, y: 4 },
+		open: { rotate: 45, y: -4, x: -4 },
 	} satisfies Variants,
 	bottom: {
 		closed: { rotate: 0, y: 0 },
-		open: { rotate: -45, y: -4 },
+		open: { rotate: -45, y: 4, x: -4 },
 	} satisfies Variants,
 };
 
