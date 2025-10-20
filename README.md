@@ -22,7 +22,7 @@ npx nx dev base-marketing
 To create a production bundle:
 
 ```sh
-npx nx build base-marketing
+npx pnpm nx build base-marketing --configuration=production
 ```
 
 To see all available targets to run for a project, run:
