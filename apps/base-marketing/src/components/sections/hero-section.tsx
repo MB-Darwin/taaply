@@ -11,6 +11,7 @@ import {
 } from "motion/react";
 import React, { useEffect, useRef } from "react";
 import { m } from "@/marketing/paraglide/messages"; // Add this import
+import { PromptSection } from "./prompt-section";
 
 const useTypingEffect = (text: string, speed: number = 100) => {
 	const [displayedText, setDisplayedText] = React.useState("");
@@ -242,8 +243,7 @@ export function HeroSection({ scrollProgress }: HeroSectionProps) {
 					transition={{ duration: 0.7, delay: 0.3 }}
 					className="w-full sm:px-6 lg:max-w-4xl"
 				>
-					{/* <PromptSection /> */}
-					<h5>Prompt input</h5>
+					<PromptSection />
 
 					<motion.div aria-hidden style={{ height: promptToProjectsGap }} />
 
